@@ -157,7 +157,21 @@ public class Main extends Application {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
+						    
+						    TextField bddName = (TextField) scene.lookup("#bdd_name");
+							TextField bddUrl = (TextField) scene.lookup("#bdd_url");
+							TextField bddPort = (TextField) scene.lookup("#bdd_port");
+							TextField bddUsername = (TextField) scene.lookup("#bdd_username");
+							TextField bddPwd = (TextField) scene.lookup("#bdd_pwd");
 							
+						    DataBaseImpl database = new DataBaseImpl();
+						    database.setName(bddName.getText());
+						    database.setUrl(bddUrl.getText());
+						    database.setPort(Integer.valueOf(bddPort.getText()));
+						    database.setUserName(bddUsername.getText());
+						    database.setPwd(bddPwd.getText());
+							
+						    
 							Scene scene = new Scene(nxtBddDBox,390,460);
 							Stage nxtBDD = new Stage();
 							nxtBDD.setTitle("Ajouter Base de Donneés");
@@ -170,7 +184,7 @@ public class Main extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									//System.out.println("new D Created: " + database.getName());
+									System.out.println("new D Created: " + database.getName());
 									nxtBDD.close();
 									
 								}

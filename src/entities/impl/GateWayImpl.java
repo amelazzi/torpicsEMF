@@ -20,7 +20,7 @@ public class GateWayImpl extends DeviceImpl implements GateWay {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected GateWayImpl() {
+	public GateWayImpl() {
 		super();
 	}
 

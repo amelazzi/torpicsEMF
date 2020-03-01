@@ -72,7 +72,7 @@ public class CapteurImpl extends DeviceImpl implements Capteur {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CapteurImpl() {
+	public CapteurImpl() {
 		super();
 	}
 

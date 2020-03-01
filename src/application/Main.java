@@ -2,6 +2,9 @@ package application;
 	
 import java.io.IOException;
 
+import entities.Capteur;
+import entities.impl.CapteurImpl;
+import entities.impl.GateWayImpl;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
@@ -9,6 +12,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.BorderPane;
 
@@ -51,8 +55,26 @@ public class Main extends Application {
 					addDevice.setScene(scene);
 					addDevice.show();
 					
-					
-				}
+					Button validateDeviceBtn = (Button) scene.lookup("#sensor_btn_validate");
+					validateDeviceBtn.setOnAction(new EventHandler<ActionEvent>() {
+						
+						@Override
+						public void handle(ActionEvent event) {
+							// TODO Auto-generated method stub
+							
+							TextField sensorName = (TextField) scene.lookup("#sensor_name");
+							TextField sensorId = (TextField) scene.lookup("#sensor_id");
+							TextField sensorSendTime = (TextField) scene.lookup("#sensor_send_time");
+						    CapteurImpl capteur = new CapteurImpl();
+							capteur.setName(sensorName.getText());
+							capteur.setId(Integer.valueOf(sensorId.getText()));
+							capteur.setSendTime(Integer.valueOf(sensorSendTime.getText()));
+							
+							System.out.println("new Capteur Created: " + capteur.getName());
+							addDevice.close();							
+						}
+					});										
+ 				}
 			});
 		 
 			Button addGwBtn = (Button) scene.lookup("#add_gw_btn");
@@ -66,7 +88,6 @@ public class Main extends Application {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../interfaces/add_gw_DG.fxml"));
 				    try {
 				    	addGwDBox = fxmlLoader.load();
-						System.out.print("hello there");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -77,6 +98,7 @@ public class Main extends Application {
 					addGW.setTitle("Ajouter Passerelle");
 					addGW.setScene(scene);
 					addGW.show();
+		
 				}
 			});
 			
@@ -91,7 +113,6 @@ public class Main extends Application {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../interfaces/add_bdd_DBox.fxml"));
 				    try {
 				    	addBddDBox = fxmlLoader.load();
-						System.out.print("hello there");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -144,7 +165,6 @@ public class Main extends Application {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../interfaces/add_cloud_DBox.fxml"));
 				    try {
 				    	addCloudDBox = fxmlLoader.load();
-						System.out.print("hello there");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
@@ -195,7 +215,6 @@ public class Main extends Application {
 					FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../interfaces/add_link_DBox.fxml"));
 				    try {
 				    	addLinkDBox = fxmlLoader.load();
-						System.out.print("hello there");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();

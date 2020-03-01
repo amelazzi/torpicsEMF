@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.*?>
 <?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.*?>
@@ -22,7 +23,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="53.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
-                  <TextField prefHeight="32.0" prefWidth="200.0" HBox.hgrow="NEVER" />
+                  <TextField fx:id="sensor_name" prefHeight="32.0" prefWidth="200.0" HBox.hgrow="NEVER" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="320.0">
@@ -33,7 +34,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="53.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
-                  <TextField prefHeight="32.0" prefWidth="200.0" HBox.hgrow="NEVER" />
+                  <TextField fx:id="sensor_id" prefHeight="32.0" prefWidth="200.0" HBox.hgrow="NEVER" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="53.0" prefWidth="320.0">
@@ -44,7 +45,7 @@
                      </font>
                   </Label>
                   <Pane prefHeight="53.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
-                  <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="Choisi type de Capteur">
+                  <MenuButton fx:id="sensor_type" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="Choisi type de Capteur">
                      <items>
                         <MenuItem mnemonicParsing="false">
                            <graphic>
@@ -73,14 +74,17 @@
                      </font>
                   </Label>
                   <Pane prefHeight="53.0" prefWidth="14.0" HBox.hgrow="ALWAYS" />
-                  <TextField prefHeight="32.0" prefWidth="200.0" HBox.hgrow="NEVER" />
+                  <TextField fx:id="sensor_send_time" prefHeight="32.0" prefWidth="200.0" HBox.hgrow="NEVER" />
                </children>
             </HBox>
             <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="NEVER" />
-            <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="NEVER">
+            <Button fx:id="sensor_btn_validate" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textAlignment="CENTER" textFill="WHITE" VBox.vgrow="NEVER">
                <font>
                   <Font size="16.0" />
                </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
             </Button>
          </children>
       </VBox>

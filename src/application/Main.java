@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import entities.Capteur;
 import entities.impl.CapteurImpl;
+import entities.impl.CloudImpl;
 import entities.impl.DataBaseImpl;
 import entities.impl.GateWayImpl;
 import javafx.application.Application;
@@ -239,12 +240,36 @@ public class Main extends Application {
 								e.printStackTrace();
 							}
 						    
+						    TextField cloudUrl = (TextField) scene.lookup("#cloud_url");
+							TextField cloudAPIKey = (TextField) scene.lookup("#cloud_api_key");
+							TextField cloudChannelId = (TextField) scene.lookup("#cloud_channel_id");
+							TextField cloudUsername = (TextField) scene.lookup("#cloud_username");
+							TextField cloudPwd = (TextField) scene.lookup("#cloud_pwd");
+							
+						    CloudImpl cloud = new CloudImpl();
+						    cloud.setUrl(cloudUrl.getText());
+						    cloud.setAPIKey(cloudAPIKey.getText());
+						    cloud.setChannelID(Integer.valueOf(cloudChannelId.getText()));
+						    cloud.setUserName(cloudUsername.getText());
+						    cloud.setPwd(cloudPwd.getText());
+						    
 							Scene scene = new Scene(nxtCloudDBox,390,460);
 							Stage nxtCloud = new Stage();
 							nxtCloud.setTitle("Ajouter Cloud");
 							nxtCloud.setScene(scene);
 							nxtCloud.show();
-							addCloud.hide();						
+							
+						    Button nxtCloudBtn = (Button) scene.lookup("#cloud_validate_btn");
+							nxtCloudBtn.setOnAction(new EventHandler<ActionEvent>() {
+								
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									System.out.println("new Cloud Created: " + cloud.getUrl());
+									nxtCloud.close();				
+								}
+							});
+							addCloud.close();						
 						}
 					});
 				}

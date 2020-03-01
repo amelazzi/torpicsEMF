@@ -137,7 +137,7 @@ public class CloudImpl extends StorageDeviceImpl implements Cloud {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CloudImpl() {
+	public CloudImpl() {
 		super();
 	}
 

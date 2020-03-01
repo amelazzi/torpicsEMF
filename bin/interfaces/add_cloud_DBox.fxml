@@ -33,11 +33,11 @@
                      <children>
                         <GridPane alignment="CENTER_LEFT" layoutY="-1.0" prefHeight="265.0" prefWidth="326.0" vgap="8.0">
                            <children>
-                              <TextField prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <TextField fx:id="cloud_url" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                               <TextField prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                               <Label text="Methode" GridPane.rowIndex="2" />
-                              <TextField prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="cloud_api_key" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="cloud_channel_id" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="4" />
                               <Label text="Type">
                                  <font>
                                     <Font size="14.0" />
@@ -65,13 +65,13 @@
                                     <MenuItem mnemonicParsing="false" text="Google Cloud" />
                                  </items>
                               </MenuButton>
-                              <TextField prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="cloud_username" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
                               <Label text="Mot de passe" GridPane.rowIndex="6">
                                  <font>
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <TextField prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                              <TextField fx:id="cloud_pwd" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
                               <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="64.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
                                     <CheckBox mnemonicParsing="false" text="Lecture" />

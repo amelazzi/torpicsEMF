@@ -89,7 +89,7 @@
                         <Insets bottom="32.0" top="32.0" />
                      </VBox.margin>
                   </Pane>
-                  <Button fx:id="cloud_btn_validate" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textFill="WHITE">
+                  <Button fx:id="cloud_validate_btn" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

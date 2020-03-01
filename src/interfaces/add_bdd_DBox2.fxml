@@ -8,8 +8,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
-<AnchorPane prefHeight="460.0" prefWidth="390.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8">
+<AnchorPane prefHeight="460.0" prefWidth="390.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="460.0" prefWidth="390.0" style="-fx-background-color: #FFFFFF;">
          <children>
@@ -93,7 +92,7 @@
                         <Insets bottom="32.0" top="32.0" />
                      </VBox.margin>
                   </Pane>
-                  <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textFill="WHITE">
+                  <Button fx:id="bdd_btn_validate" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textFill="WHITE">
                      <cursor>
                         <Cursor fx:constant="HAND" />
                      </cursor>

@@ -73,7 +73,7 @@ public class DataBaseImpl extends StorageDeviceImpl implements DataBase {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected DataBaseImpl() {
+	public DataBaseImpl() {
 		super();
 	}
 

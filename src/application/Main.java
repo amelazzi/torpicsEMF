@@ -4,6 +4,7 @@ import java.io.IOException;
 
 import entities.Capteur;
 import entities.impl.CapteurImpl;
+import entities.impl.DataBaseImpl;
 import entities.impl.GateWayImpl;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -98,7 +99,24 @@ public class Main extends Application {
 					addGW.setTitle("Ajouter Passerelle");
 					addGW.setScene(scene);
 					addGW.show();
-		
+					
+					Button validateGwBtn = (Button) scene.lookup("#gw_btn_validate");
+					validateGwBtn.setOnAction(new EventHandler<ActionEvent>() {
+						
+						@Override
+						public void handle(ActionEvent event) {
+							// TODO Auto-generated method stub
+							
+							TextField gwName = (TextField) scene.lookup("#gw_name");
+							TextField gwId = (TextField) scene.lookup("#gw_id");
+						    GateWayImpl gateway = new GateWayImpl();
+						    gateway.setName(gwName.getText());
+						    gateway.setId(Integer.valueOf(gwId.getText()));
+							
+							System.out.println("new GateWay Created: " + gateway.getName());
+							addGW.close();							
+						}
+					});	
 				}
 			});
 			
@@ -139,13 +157,28 @@ public class Main extends Application {
 								// TODO Auto-generated catch block
 								e.printStackTrace();
 							}
-						    
+							
 							Scene scene = new Scene(nxtBddDBox,390,460);
 							Stage nxtBDD = new Stage();
 							nxtBDD.setTitle("Ajouter Base de Donneés");
 							nxtBDD.setScene(scene);
 							nxtBDD.show();
-							addBDD.hide();					
+							
+							Button nxtBddBtn = (Button) scene.lookup("#bdd_btn_validate");
+							nxtBddBtn.setOnAction(new EventHandler<ActionEvent>() {
+								
+								@Override
+								public void handle(ActionEvent event) {
+									// TODO Auto-generated method stub
+									//System.out.println("new D Created: " + database.getName());
+									nxtBDD.close();
+									
+								}
+							});
+							
+							addBDD.close();	
+							
+							
 						}
 					});
 					

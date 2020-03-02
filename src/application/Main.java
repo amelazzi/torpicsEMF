@@ -2,6 +2,7 @@ package application;
 	
 import java.io.IOException;
 
+import entities.BddType;
 import entities.CloudType;
 import entities.ComProtocol;
 import entities.ReadWrite;
@@ -166,13 +167,45 @@ public class Main extends Application {
 								e.printStackTrace();
 							}
 						    
+						    DataBaseImpl database = new DataBaseImpl();
+						    
 						    TextField bddName = (TextField) scene.lookup("#bdd_name");
+						    
+						    MenuButton bddType = (MenuButton) scene.lookup("#bdd_type");
+						    MenuItem mysql = (MenuItem) bddType.getItems().get(0);
+						    mysql.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent arg0) {
+									// TODO Auto-generated method stub
+									database.setType(BddType.MY_SQL);
+								}
+							});
+						    MenuItem postgresql = (MenuItem) bddType.getItems().get(1);
+						    postgresql.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent arg0) {
+									// TODO Auto-generated method stub
+									database.setType(BddType.POSTGRE_SQL);
+								}
+							});
+						    MenuItem oracle = (MenuItem) bddType.getItems().get(2);
+						    oracle.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent arg0) {
+									// TODO Auto-generated method stub
+									database.setType(BddType.ORACLE);
+								}
+							});
+						    
 							TextField bddUrl = (TextField) scene.lookup("#bdd_url");
 							TextField bddPort = (TextField) scene.lookup("#bdd_port");
 							TextField bddUsername = (TextField) scene.lookup("#bdd_username");
 							TextField bddPwd = (TextField) scene.lookup("#bdd_pwd");
 							
-						    DataBaseImpl database = new DataBaseImpl();
+						   
 						    database.setName(bddName.getText());
 						    database.setUrl(bddUrl.getText());
 						    database.setPort(Integer.valueOf(bddPort.getText()));
@@ -192,7 +225,27 @@ public class Main extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									System.out.println("new D Created: " + database.getName());
+									MenuButton bddComProtocol = (MenuButton) scene.lookup("#bdd_com_protocol");
+									MenuItem sqlBdd = (MenuItem) bddComProtocol.getItems().get(0);
+								    sqlBdd.setOnAction(new EventHandler<ActionEvent>() {
+
+										@Override
+										public void handle(ActionEvent arg0) {
+											// TODO Auto-generated method stub
+											database.setProtocol(ComProtocol.SQL);
+										}
+									});
+								    MenuItem mqtt = (MenuItem) bddComProtocol.getItems().get(1);
+								    mqtt.setOnAction(new EventHandler<ActionEvent>() {
+
+										@Override
+										public void handle(ActionEvent arg0) {
+											// TODO Auto-generated method stub
+											database.setProtocol(ComProtocol.MQTT);
+										}
+									});
+									   
+									System.out.println("new Database Created: " + database.getName());
 									nxtBDD.close();
 									
 								}

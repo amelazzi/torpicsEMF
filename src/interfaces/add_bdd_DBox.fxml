@@ -79,11 +79,11 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="213.0" text="Type de BDD" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
+                              <MenuButton fx:id="bdd_type" mnemonicParsing="false" prefHeight="35.0" prefWidth="213.0" text="Type de BDD" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.rowIndex="1" GridPane.vgrow="ALWAYS">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="MySQL" />
-                                    <MenuItem mnemonicParsing="false" text="PostgreSQL" />
-                                    <MenuItem mnemonicParsing="false" text="Oracle" />
+                                    <MenuItem fx:id="bdd_type_mysql" mnemonicParsing="false" text="MySQL" />
+                                    <MenuItem fx:id="bdd_type_postgresql" mnemonicParsing="false" text="PostgreSQL" />
+                                    <MenuItem fx:id="bdd_type_oracle" mnemonicParsing="false" text="Oracle" />
                                  </items>
                               </MenuButton>
                            </children>

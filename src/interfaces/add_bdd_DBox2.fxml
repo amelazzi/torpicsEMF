@@ -49,10 +49,10 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="protocol de communication" GridPane.columnIndex="1">
+                              <MenuButton fx:id="bdd_com_protocol" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="protocol de communication" GridPane.columnIndex="1">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="SQL" />
-                                    <MenuItem mnemonicParsing="false" text="MQTT" />
+                                    <MenuItem fx:id="bdd_sql" mnemonicParsing="false" text="SQL" />
+                                    <MenuItem fx:id="bdd_mqtt" mnemonicParsing="false" text="MQTT" />
                                  </items>
                               </MenuButton>
                            </children>

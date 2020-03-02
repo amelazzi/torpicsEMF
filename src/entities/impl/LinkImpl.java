@@ -73,7 +73,7 @@ public class LinkImpl extends MinimalEObjectImpl.Container implements Link {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected LinkImpl() {
+	public LinkImpl() {
 		super();
 	}
 

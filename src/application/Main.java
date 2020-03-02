@@ -2,21 +2,28 @@ package application;
 	
 import java.io.IOException;
 
-import entities.Capteur;
+import entities.CloudType;
+import entities.ComProtocol;
+import entities.ReadWrite;
 import entities.impl.CapteurImpl;
 import entities.impl.CloudImpl;
 import entities.impl.DataBaseImpl;
 import entities.impl.GateWayImpl;
+import entities.impl.LinkImpl;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.CustomMenuItem;
+import javafx.scene.control.MenuButton;
+import javafx.scene.control.MenuItem;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.BorderPane;
 
 
 public class Main extends Application {
@@ -240,14 +247,41 @@ public class Main extends Application {
 								e.printStackTrace();
 							}
 						    
+						    CloudImpl cloud = new CloudImpl();
+						    
+						    MenuButton cloudType = (MenuButton) scene.lookup("#cloud_type");
+						    MenuItem thingSpeak = (MenuItem) cloudType.getItems().get(0);
+						    thingSpeak.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent arg0) {
+									// TODO Auto-generated method stub
+									cloud.setType(CloudType.THING_SPEAK);
+								}
+							});
+						    MenuItem googleCloud = (MenuItem) cloudType.getItems().get(1);
+						    googleCloud.setOnAction(new EventHandler<ActionEvent>() {
+
+								@Override
+								public void handle(ActionEvent arg0) {
+									// TODO Auto-generated method stub
+									cloud.setType(CloudType.GOOGLE_CLOUD);
+								}
+							});
 						    TextField cloudUrl = (TextField) scene.lookup("#cloud_url");
+						    CheckBox readCheckBox = (CheckBox) scene.lookup("#cloud_method_read");
+						    CheckBox writeCheckBox = (CheckBox) scene.lookup("#cloud_method_write");
 							TextField cloudAPIKey = (TextField) scene.lookup("#cloud_api_key");
 							TextField cloudChannelId = (TextField) scene.lookup("#cloud_channel_id");
 							TextField cloudUsername = (TextField) scene.lookup("#cloud_username");
 							TextField cloudPwd = (TextField) scene.lookup("#cloud_pwd");
 							
-						    CloudImpl cloud = new CloudImpl();
+						    
 						    cloud.setUrl(cloudUrl.getText());
+						    if(readCheckBox.isSelected())
+						    	cloud.setMethod(ReadWrite.READ);
+						    if(writeCheckBox.isSelected())
+						    	cloud.setMethod(ReadWrite.WRITE);
 						    cloud.setAPIKey(cloudAPIKey.getText());
 						    cloud.setChannelID(Integer.valueOf(cloudChannelId.getText()));
 						    cloud.setUserName(cloudUsername.getText());
@@ -265,7 +299,28 @@ public class Main extends Application {
 								@Override
 								public void handle(ActionEvent event) {
 									// TODO Auto-generated method stub
-									System.out.println("new Cloud Created: " + cloud.getUrl());
+									
+									MenuButton cloudComProtocol = (MenuButton) scene.lookup("#cloud_com_protocol");
+								    MenuItem sql = (MenuItem) cloudComProtocol.getItems().get(0);
+								    sql.setOnAction(new EventHandler<ActionEvent>() {
+
+										@Override
+										public void handle(ActionEvent arg0) {
+											// TODO Auto-generated method stub
+											cloud.setProtocol(ComProtocol.SQL);
+										}
+									});
+								    MenuItem mqtt = (MenuItem) cloudComProtocol.getItems().get(1);
+								    mqtt.setOnAction(new EventHandler<ActionEvent>() {
+
+										@Override
+										public void handle(ActionEvent arg0) {
+											// TODO Auto-generated method stub
+											cloud.setProtocol(ComProtocol.MQTT);
+										}
+									});
+									
+									System.out.println("new Cloud Created: " + cloud.getProtocol());
 									nxtCloud.close();				
 								}
 							});
@@ -298,7 +353,19 @@ public class Main extends Application {
 					addLink.setScene(scene);
 					addLink.show();
 					
-					
+					Button validateGwBtn = (Button) scene.lookup("#link_validate_btn");
+					validateGwBtn.setOnAction(new EventHandler<ActionEvent>() {
+						
+						@Override
+						public void handle(ActionEvent event) {
+							// TODO Auto-generated method stub
+							
+						    LinkImpl link = new LinkImpl();
+							System.out.println("new Link Created: ");
+							addLink.close();							
+						}
+					});	
+				
 				}
 			});
 			

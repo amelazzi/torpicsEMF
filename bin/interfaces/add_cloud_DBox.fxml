@@ -59,10 +59,10 @@
                                     <Font size="14.0" />
                                  </font>
                               </Label>
-                              <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="213.0" text="Choisir type de Cloud" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
+                              <MenuButton fx:id="cloud_type" mnemonicParsing="false" prefHeight="35.0" prefWidth="213.0" text="Choisir type de Cloud" GridPane.columnIndex="1" GridPane.hgrow="ALWAYS" GridPane.vgrow="ALWAYS">
                                  <items>
-                                    <MenuItem mnemonicParsing="false" text="ThingSpeak" />
-                                    <MenuItem mnemonicParsing="false" text="Google Cloud" />
+                                    <MenuItem fx:id="cloud_thing_speak" mnemonicParsing="false" text="ThingSpeak" />
+                                    <MenuItem fx:id="cloud_google_cloud" mnemonicParsing="false" text="Google Cloud" />
                                  </items>
                               </MenuButton>
                               <TextField fx:id="cloud_username" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="5" />
@@ -72,10 +72,10 @@
                                  </font>
                               </Label>
                               <TextField fx:id="cloud_pwd" prefHeight="35.0" prefWidth="200.0" GridPane.columnIndex="1" GridPane.rowIndex="6" />
-                              <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="64.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
+                              <HBox fx:id="cloud_method" alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" spacing="64.0" GridPane.columnIndex="1" GridPane.rowIndex="2">
                                  <children>
-                                    <CheckBox mnemonicParsing="false" text="Lecture" />
-                                    <CheckBox mnemonicParsing="false" text="Ecriture" />
+                                    <CheckBox fx:id="cloud_method_read" mnemonicParsing="false" text="Lecture" />
+                                    <CheckBox fx:id="cloud_method_write" mnemonicParsing="false" text="Ecriture" />
                                  </children>
                               </HBox>
                            </children>

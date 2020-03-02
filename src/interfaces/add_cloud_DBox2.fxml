@@ -36,7 +36,7 @@
                               <Font size="14.0" />
                            </font>
                         </Label>
-                        <MenuButton mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="protocole de communication">
+                        <MenuButton fx:id="cloud_com_protocol" mnemonicParsing="false" prefHeight="35.0" prefWidth="200.0" text="protocole de communication">
                            <items>
                               <MenuItem mnemonicParsing="false" text="SQL" />
                               <MenuItem mnemonicParsing="false" text="MQTT" />

@@ -47,7 +47,7 @@
                </children>
             </HBox>
             <Pane prefHeight="70.0" prefWidth="327.0" VBox.vgrow="ALWAYS" />
-            <Button mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textFill="WHITE">
+            <Button fx:id="link_validate_btn" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #367C55;" text="Valider" textFill="WHITE">
                <font>
                   <Font size="16.0" />
                </font>

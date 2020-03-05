@@ -24,8 +24,11 @@
     <eLiterals name="MQTT"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Link">
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="source" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
-    <eStructuralFeatures xsi:type="ecore:EAttribute" name="destination" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="source" lowerBound="1"
+        eType="#//Device"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="destination" lowerBound="1"
+        eType="#//Device"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Cloud" eSuperTypes="#//StorageDevice">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" eType="#//CloudType"/>
@@ -53,5 +56,11 @@
   <eClassifiers xsi:type="ecore:EEnum" name="ReadWrite">
     <eLiterals name="Read"/>
     <eLiterals name="Write" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Network">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="deviceList" upperBound="-1"
+        eType="#//Device" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="linkList" upperBound="-1"
+        eType="#//Link" containment="true"/>
   </eClassifiers>
 </ecore:EPackage>
